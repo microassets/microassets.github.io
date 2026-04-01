@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Microassets</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <link rel="shortcut icon" href="../../../favicon_io/favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Coming Soon Page */
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column; /* Added to support the logo at the top */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Branded Background Glow */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #8E6BCB;
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .brand-header {
+            position: absolute;
+            top: 40px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-header span {
+            color: #8E6BCB;
+        }
+
+        .coming-soon-container {
+            padding: 20px;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .icon-box {
+            font-size: 4rem;
+            color: #8E6BCB;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, #8E6BCB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-back {
+            background: #8E6BCB;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-back:hover {
+            background: transparent;
+            border-color: #8E6BCB;
+            box-shadow: 0 0 20px rgba(142, 107, 203, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: #666;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #8E6BCB;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-header">
+         <svg fill="white" width="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 873.08 116.64">
+                        <g id="Layer_2" data-name="Layer 2">
+                            <g id="Layer_1-2" data-name="Layer 1">
+                                <path
+                                    d="M45.17,113.75H0V93.83H6.39V57.94H0V37.87H28.74l3.35,9c2.43-2.89,9.43-11.1,19-11.1,15.36,0,20.22,7.3,22.66,10.95,4.71-5.33,11.86-10.95,22.35-10.95,24.64,0,28.44,17.94,28.44,36.5v21H132v20.53H93.37V76.49c0-7.3,1.37-18.85-5.78-18.85-6.53,0-8.06,4.56-8.06,11.1V93.37h9.13v20.38H49.27V75c0-12.32-.3-17.33-6.39-17.33C38,57.64,36,60.53,36,66.76V93.83h9.13Z" />
+                                <path
+                                    d="M180.67,113.75H138.09V93.83h6.38V57.48h-6.38V37.71h35.28V93.83h7.3ZM158.77,0c10.49,0,16.73,8.52,16.73,15.51,0,8.37-5.93,15.36-16.73,15.36-9.58,0-16.42-8.06-16.42-15.36A16,16,0,0,1,158.77,0Z" />
+                                <path
+                                    d="M229.64,56.12c-9,0-13.39,9.58-13.39,19.46s5.93,17.79,15.67,18c8.06.15,13.38-3.2,18.4-8.67l13.38,15.51c-7.15,7.75-20.83,15.51-37.26,15.51-22.35,0-41.82-13.53-41.82-40.6S202.57,36.35,222,36.35A24.47,24.47,0,0,1,241,45l2.59-7.3h17.94V72.08H239.22C238.91,64.78,236.63,56.12,229.64,56.12Z" />
+                                <path
+                                    d="M312.06,113.75H269V93.83h6.69V57.48h-6.54V37.71h28.59l4.56,9.74c3.95-7.3,7.91-13.54,23.57-13.54V61.29c-13.69,0-21.44,3.49-21.44,16.88V93.83h7.6Z" />
+                                <path
+                                    d="M329.85,75.43C330,50,350.54,35.89,371.52,35.89c24,.3,41.82,14.75,42.28,40.15.3,25.24-18.4,39.69-41.52,39.69C350.54,115.73,329.55,102.35,329.85,75.43Zm52.77.61c0-11.41-3.95-20.23-11.1-20.38-5.93,0-10.49,8.82-10.49,19.92,0,12.47,4.87,20.68,11.25,20.68C378.82,96.26,382.62,87.44,382.62,76Z" />
+                                <path
+                                    d="M421,44.1c6.08-3.65,19.16-10.8,33.15-10.8,18.25,0,41.21,6.85,41.21,31.33V94.29h9.13v19.46H471.9l-3.66-6.84c-5.62,7.75-15.05,9.73-20.52,9.73-14.45,0-30-7.76-30-25.4,0-17.18,14.44-28,31.63-28,9,0,14.29,4.41,15.05,5.33V63.26c0-6.84-6.23-8.51-14.44-8.51-9,0-16.88,3.8-22.66,7Zm43.49,47.75V86.07c-.45-.76-2.58-4.41-9-4.41-6.08,0-8.82,3.35-8.82,8.06,0,4.26,3.5,7.15,8.06,7.15A12,12,0,0,0,464.44,91.85Z" />
+                                <path
+                                    d="M509,113.75V86.38h20.38c0,8.06,11.56,10.19,16.12,10.19,3,0,6.69-.92,6.69-5.17,0-4.57-11.4-5.33-22.35-9.13-10.34-3.65-20.23-10-20.23-24.33,0-15.51,16-22,26.77-22,10.34,0,19.46,5.32,22.66,11.86l1.21-10H579V65.09H559.19c0-6.39-7.91-11.56-15.51-11.56-3.2,0-5.93,1.67-5.93,5.47,0,4.26,9,6.09,18.7,9.43,11.56,4,24.48,8.37,24.48,24.33,0,14.3-13.53,22.82-28.28,22.82-10.95,0-19.62-5.33-23.27-11.11L528,113.75Z" />
+                                <path
+                                    d="M586.26,113.75V86.38h20.38c0,8.06,11.56,10.19,16.12,10.19,3,0,6.69-.92,6.69-5.17,0-4.57-11.41-5.33-22.36-9.13-10.34-3.65-20.22-10-20.22-24.33,0-15.51,16-22,26.76-22,10.34,0,19.47,5.32,22.66,11.86l1.22-10h18.7V65.09H636.44c0-6.39-7.9-11.56-15.51-11.56-3.19,0-5.93,1.67-5.93,5.47,0,4.26,9,6.09,18.71,9.43,11.55,4,24.48,8.37,24.48,24.33,0,14.3-13.53,22.82-28.28,22.82-10.95,0-19.62-5.33-23.27-11.11l-1.37,9.28Z" />
+                                <path
+                                    d="M741.38,103.26C730.12,113,718,116.49,702.14,116.49c-18.86,0-40.15-12-40.15-41.21,0-24.94,18-39.69,40.91-39.69,18.1,0,31.94,9.27,36.35,22,1.82,5.32,3.5,17,.3,25.7h-47.9c.91,4.1,2.89,12.47,15.66,12.47,5.17,0,13.08-.46,21.29-7.3Zm-49.27-35h23c-.15-5.78-1.52-12.16-11.25-12.16C694.54,56.12,692.41,64.48,692.11,68.28Z" />
+                                <path
+                                    d="M745.94,37.71h8.21v-14l28-9v23h14.45V57.48H782.13V84.55c0,5.17-1.06,12.17,4.87,12.17,2,0,6.69-1.37,9.58-2.59V113.6c-4.56,1.82-14.9,2.89-18.4,2.89-22.81,0-23.57-12.47-24-31.94V57.48h-8.21Z" />
+                                <path
+                                    d="M801.15,113.75V86.38h20.37c0,8.06,11.56,10.19,16.12,10.19,3,0,6.69-.92,6.69-5.17,0-4.57-11.4-5.33-22.35-9.13-10.34-3.65-20.23-10-20.23-24.33,0-15.51,16-22,26.77-22,10.34,0,19.46,5.32,22.66,11.86l1.21-10H871.1V65.09H851.33c0-6.39-7.91-11.56-15.51-11.56-3.2,0-5.93,1.67-5.93,5.47,0,4.26,9,6.09,18.7,9.43,11.56,4,24.49,8.37,24.49,24.33,0,14.3-13.54,22.82-28.29,22.82-10.95,0-19.62-5.33-23.27-11.11l-1.36,9.28Z" />
+                            </g>
+                        </g>
+                    </svg>
+    </div>
+
+    <div class="coming-soon-container">
+        <div class="icon-box">
+            <i class="fas fa-rocket"></i> </div>
+        <h1>Something Great is Brewing</h1>
+        <p>We're currently working hard on this feature to give you the best experience possible. It will be available very soon!</p>
+        
+        <a href="javascript:history.back()" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>

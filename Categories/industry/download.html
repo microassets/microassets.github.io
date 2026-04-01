@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+    <style>
+        #detail-view{
+display: flex;
+/* padding: 40px; */
+        }
+        .preview img{
+            /* width: 500px; */
+            border-radius: 10px;
+            width: 600px;
+            background-color: rgb(255, 153, 127);
+        }
+        .preview{
+              /* background-color: rgb(255, 153, 127); */
+              padding: 20px;
+        }
+        .main-download{
+            display: flex;
+            align-items: center;
+            gap: 25%;
+            /* justify-content: space-around; */
+            /* background-color: aqua; */
+            padding: 10px;
+        }
+        #download{
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: rgb(66, 66, 66);
+            color: white;
+        }
+           #download:hover{
+            transition: 0.5s;
+            background-color: black;
+        }
+    </style>
+    <div class="main-download">
+    <div id="detail-view">
+       
+        
+   <div class="preview">
+    <div class="title">
+        <h1>Awsome Social media post</h1>
+    </div>
+    <img  src="https://i.postimg.cc/k5SL76jg/Fast-Food.png" alt="">
+   </div>
+   <div class="detailes">
+
+   </div>
+    </div>
+       <div class="asset-info-sidebar">
+                <div class="info-card">
+                    <p><strong>File name:</strong> <span id="info-name">Awsome Bussiness Card</span></p>
+                    <p><strong>Industry:</strong> <span id="info-industry">Food & Drinks </span></p>
+                    <p><strong>Category:</strong> <span id="info-category">Bussiness Card</span></p>
+                    <p><strong>Downloads:</strong> <span id="info-category">100</span></p>
+                    <p><strong>Format:</strong> SVG / AI</p>
+                </div>
+                <a id="info-download-link" href="#" target="_blank" class="download-now-btn"><button id="download">
+ Download Now
+                </button></a>
+            </div>
+        </div>
+   
+       <div class="related-section">
+            <h3>Related Microassets</h3>
+            <div id="related-grid" class="related-grid"></div>
+        </div>
+    </div> 
+</body>
+</html>
