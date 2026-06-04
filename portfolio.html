@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muneeb Sadiqiue - Digital Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #05020c;
+        }
+        /* Custom Glowing Background Effects */
+        .glow-sphere {
+            box-shadow: 0 0 60px 10px rgba(139, 92, 246, 0.25), 0 0 100px 30px rgba(59, 130, 246, 0.15);
+            animation: pulseGlow 8s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+    </style>
+    <style>
+    /* Pulse Loading Animations Configuration for Images */
+    .dynamic-skeleton {
+        position: relative;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.04) !important;
+    }
+    .dynamic-skeleton::after {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.03) 20%,
+            rgba(255, 255, 255, 0.06) 60%,
+            rgba(255, 255, 255, 0) 100__
+        );
+        animation: shimmerEffect 1.6s infinite;
+    }
+    @keyframes shimmerEffect {
+        100% { transform: translateX(100%); }
+    }
+</style>
+</head>
+<body class="text-gray-300 overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#05020c]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 text-xl font-extrabold text-white tracking-tight">
+                <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-sm">M</span>
+                Muneeb Sadiqiue<span class="text-violet-500">.</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#work" class="hover:text-white transition">Work</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+            </nav>
+            <a href="#contact" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:opacity-90 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wide transition shadow-lg shadow-violet-500/20">
+                Hire Me
+            </a>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            
+            <div class="lg:col-span-7 z-10 space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs font-semibold text-violet-400 tracking-wider uppercase">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Available For Work
+                </div>
+                <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+                    Creative <br>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-blue-400 to-fuchsia-400">Digital Portfolio</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-xl leading-relaxed">
+                    Crafting next-level digital experiences — web development, video editing, graphic design, social media content, branding & logo design.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#contact" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:opacity-90 text-white px-8 py-3.5 rounded-full font-semibold transition shadow-lg shadow-violet-500/20">
+                        Hire Me
+                    </a>
+                    <a href="#work" class="border border-white/10 hover:border-white/30 bg-white/5 text-white px-8 py-3.5 rounded-full font-semibold transition">
+                        View Work
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 pt-6">
+                    <a href="https://www.instagram.com/microtasker_/" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition bg-white/5"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition bg-white/5"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition bg-white/5"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition bg-white/5"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <span class="absolute top-10 left-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-purple-300">Web Dev</span>
+                <span class="absolute bottom-12 left-10 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-fuchsia-300">Motion Design</span>
+                <span class="absolute top-24 right-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-blue-300">Video</span>
+                <span class="absolute bottom-24 right-0 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-indigo-300">Branding</span>
+
+                <div class="glow-sphere w-72 h-72 sm:w-96 sm:h-96 rounded-full overflow-hidden border border-white/20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent)]"></div>
+                   <img src="https://i.postimg.cc/rmXt0fdX/Chat-GPT-Image-May-28-2026-11-59-36-AM.png" alt="Abstract Art" class="w-full h-full object-cover  opacity-100 ">
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <span class="text-[10px] tracking-[0.3em] uppercase text-gray-500 font-bold">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-violet-500 to-transparent"></div>
+        </div>
+    </section>
+ <section id="work" class="py-24 max-w-7xl mx-auto px-6 border-t border-white/5">
+    <div class="text-center space-y-3 mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-violet-500">Portfolio Vault</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Selected Deliverables</h2>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-2 mb-16">
+        <button data-filter="all" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white transition">All Works</button>
+        <button data-filter="web" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition">Web Dev</button>
+        <button data-filter="video" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition">Video Editing</button>
+        <button data-filter="shorts" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition">Shorts / Reels</button>
+        <button data-filter="graphics" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition">Graphics Pack</button>
+    </div>
+
+    <div id="work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+        <div class="col-span-full text-center py-12 text-gray-400 animate-pulse text-sm">
+            Assembling assets from portfolio modules...
+        </div>
+    </div>
+
+    <div class="flex justify-center items-center pt-16">
+        <button id="load-more-btn" class="hidden px-7 py-3 rounded-xl text-sm font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-violet-500/50 transition duration-300 transform active:scale-95 shadow-lg">
+            Load More Content
+        </button>
+    </div>
+</section>
+
+  
+
+
+
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6 border-t border-white/5">
+        <div class="text-center space-y-3 mb-16">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-violet-500">Expertise</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Core Services</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-[#0d081b] border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition duration-300 space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 text-xl">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Social Media Content</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Platform-native content strategy, reels, carousels, and creative templates that drive genuine engagement and growth.
+                </p>
+            </div>
+
+            <div class="bg-[#0d081b] border border-white/5 rounded-2xl p-8 hover:border-fuchsia-500/20 transition duration-300 space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-fuchsia-500/10 flex items-center justify-center text-fuchsia-400 text-xl">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Branding & Logo Design</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Complete brand systems — logo, color palette, typography, and guidelines — built for longevity and scalability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 relative">
+                <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-gray-900">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Creator Workspace" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-6 right-6 bg-[#05020c]/90 backdrop-blur-md border border-violet-500/30 px-6 py-4 rounded-xl text-center">
+                    <div class="text-2xl font-extrabold text-white">5+ Years</div>
+                    <div class="text-[10px] uppercase tracking-wider text-gray-400 font-medium">Experience</div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-violet-500 block">About</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Blending Code, <br>Design & Story</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    I'm a full-spectrum digital creator who bridges the gap between engineering precision and creative vision. Whether it's shipping a production-grade web app, cutting a cinematic brand film, or building a logo system from scratch — I bring the same obsessive attention to detail.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    With 5+ years across startups, agencies, and independent projects, I've learned that the best digital work lives at the intersection of great UX, compelling visuals, and purposeful storytelling.
+                </p>
+
+                <ul class="space-y-3 pt-2 text-sm font-medium text-gray-300">
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span> Shipped 40+ production web projects</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span> Edited 200+ videos across YouTube, Instagram & brand campaigns</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span> Built brand identities for 25+ businesses worldwide</li>
+                </ul>
+
+                <div class="pt-6 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-500">Tools & Stack</h4>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Html</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Css</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">JavaScript</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Figma</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Adobe Premiere</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Adobe Illustrator</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Photoshop</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Canva</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Filmora</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Capcut</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Firebase</span>
+                                <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">Mysql</span>
+                                         <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-gray-300">PHP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="border-t border-white/5 bg-[#05020c]/40 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <a href="#" class="flex items-center gap-2 text-lg font-extrabold text-white tracking-tight">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-xs">C</span>
+                Creative<span class="text-violet-500">.</span>
+            </a>
+            
+            <div class="flex items-center gap-6 text-xs font-medium text-gray-500">
+                <a href="#work" class="hover:text-gray-300 transition">Work</a>
+                <a href="#services" class="hover:text-gray-300 transition">Services</a>
+                <a href="#about" class="hover:text-gray-300 transition">About</a>
+                <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-3 text-gray-500 text-sm">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+        <div class="text-center text-[11px] text-gray-600 mt-8">
+            &copy; 2026 Creative Digital Studio. All rights reserved.
+        </div>
+    </footer>
+<script>
+    // 1. Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDXyQl8pfoSlcAE-1zbyhGMExrbn_eNyPM",
+        authDomain: "microtemplates-eb2e7.firebaseapp.com",
+        projectId: "microtemplates-eb2e7",
+        storageBucket: "microtemplates-eb2e7.firebasestorage.app",
+        messagingSenderId: "673841508032",
+        appId: "1:673841508032:web:11d735db56be6505254725",
+        measurementId: "G-BWQH87DFY0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const workGrid = document.getElementById('work-grid');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const graphicsSubs = document.getElementById('graphics-subs');
+        const mainFilters = document.querySelectorAll('.filter-btn');
+        const subFilters = document.querySelectorAll('.sub-filter-btn');
+        
+        let combinedAssets = [];       
+        let visibleItemsCount = 10;   
+        let currentFilter = 'all';    
+        let currentSubFilter = 'all';
+
+        // 2. Deep Linking: Check URL parameters on load
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialFilter = urlParams.get('filter');
+        if (initialFilter) {
+            currentFilter = initialFilter;
+            updateActiveButtonUI(initialFilter);
+        }
+
+        // 3. Data Retrieval Pipeline
+        Promise.all([
+            db.collection("microassets").get(),
+            db.collection("Videos").get()
+        ]).then(([assetsSnapshot, videosSnapshot]) => {
+            const databaseAssets = [];
+            assetsSnapshot.forEach((doc) => databaseAssets.push(doc.data()));
+
+            const databaseVideos = [];
+            videosSnapshot.forEach((doc) => databaseVideos.push(doc.data()));
+
+            assembleAndProcess(databaseAssets, databaseVideos);
+        }).catch((error) => {
+            console.error("Error fetching documents: ", error);
+        });
+
+        function assembleAndProcess(assets, videos) {
+            // Map microassets with specialized nested filters
+            const assetsMapped = assets.map(item => {
+                const category = (item.Categorey || item.Category || "").toLowerCase();
+                let systemCategory = "graphics"; 
+                let subCategory = "other";
+
+                if (category.includes("web") || category.includes("dev")) systemCategory = "web";
+                else if (category.includes("short") || category.includes("reel") || category.includes("shorts")) systemCategory = "shorts";
+                else if (category.includes("video") || category.includes("edit") || category.includes("motion")) systemCategory = "video";
+                
+                // Nested Graphic Subcategories
+                if (category.includes("logo")) subCategory = "logo";
+                else if (category.includes("social") || category.includes("post")) subCategory = "social";
+                else if (category.includes("brand")) subCategory = "branding";
+
+                return { 
+                    ...item, 
+                    Watch_Link: item.Watch_Link || item.Video_URL || item.Dowload_link || item["Dowload link"] || "#",
+                    computedSystemCategory: systemCategory, 
+                    subCategory: subCategory,
+                    isVideoSource: (systemCategory === 'shorts' || systemCategory === 'video') 
+                };
+            });
+
+            // Map standalone Videos collection
+            const videosMapped = videos.map(item => {
+                const type = (item.type || item.Categorey || item.Category || "").toLowerCase();
+                let systemCategory = "video";
+                if (type.includes("short") || type.includes("reel") || type.includes("shorts")) systemCategory = "shorts";
+
+                return {
+                    Title: item.Title || "Untitled Video",
+                    Descrption: item.Descrption || item.Description || "",
+                    Thumbnail: item.Thumbnail || "",
+                    Watch_Link: item.Video_URL || item.Watch_Link || "#",
+                    Categorey: item.type || "Video Project",
+                    computedSystemCategory: systemCategory,
+                    isVideoSource: true
+                };
+            });
+
+            combinedAssets = [...assetsMapped, ...videosMapped];
+            processAndRender();
+        }
+
+        function processAndRender() {
+            const filteredData = combinedAssets.filter(item => {
+                const matchMain = currentFilter === 'all' || item.computedSystemCategory === currentFilter;
+                const matchSub = currentSubFilter === 'all' || item.subCategory === currentSubFilter;
+                return matchMain && matchSub;
+            });
+
+            const itemsToRender = filteredData.slice(0, visibleItemsCount);
+            renderGrid(itemsToRender);
+
+            // Toggle sub-filters display dynamically
+            if (currentFilter === 'graphics') {
+                if (graphicsSubs) graphicsSubs.classList.remove('hidden');
+            } else {
+                if (graphicsSubs) graphicsSubs.classList.add('hidden');
+                currentSubFilter = 'all'; 
+            }
+
+            if (filteredData.length > visibleItemsCount) {
+                if (loadMoreBtn) loadMoreBtn.classList.remove('hidden');
+            } else {
+                if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+            }
+        }
+
+        // 4. Video UI Framework Generator
+        function buildVideoEmbedHtml(url, thumbnail, uniqueIndex) {
+            if (!url) return '';
+            
+            if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                let videoId = '';
+                if(url.includes('shorts/')) {
+                    videoId = url.split('shorts/')[1].split('?')[0];
+                } else if(url.includes('v=')) {
+                    videoId = url.split('v=')[1].split('&')[0];
+                } else {
+                    videoId = url.split('/').pop();
+                }
+                return `<iframe class="w-full h-full max-h-full absolute inset-0 bg-black" src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                return `
+                    <div class="custom-video-wrapper w-full h-full absolute inset-0 bg-black group/player select-none" onclick="togglePlayState(${uniqueIndex})">
+                        <video id="video-player-${uniqueIndex}" class="w-full h-full object-cover" preload="metadata" src="${url}" poster="${thumbnail}" playsinline></video>
+                        <div id="play-overlay-${uniqueIndex}" class="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px] transition-all duration-300 pointer-events-none z-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 flex items-center justify-center text-white shadow-lg transform group-hover/player:scale-110 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col gap-2 opacity-0 group-hover/player:opacity-100 transition-opacity duration-300 pointer-events-auto z-20" onclick="event.stopPropagation()">
+                            <div class="relative w-full h-1 bg-white/20 rounded-full cursor-pointer group/timeline" onclick="seekVideo(event, ${uniqueIndex})">
+                                <div id="progress-bar-${uniqueIndex}" class="absolute top-0 left-0 h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full w-0"></div>
+                                <div id="progress-pin-${uniqueIndex}" class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover/timeline:opacity-100 transition-opacity" style="left: 0%;"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-white text-xs">
+                                <div class="flex items-center gap-4">
+                                    <button onclick="togglePlayState(${uniqueIndex})" class="hover:text-violet-400 transition transform active:scale-90">
+                                        <svg id="play-icon-${uniqueIndex}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                        </svg>
+                                        <svg id="pause-icon-${uniqueIndex}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <span class="font-mono tracking-tight text-gray-300">
+                                        <span id="current-time-${uniqueIndex}">0:00</span> / <span id="duration-time-${uniqueIndex}">0:00</span>
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="toggleMuteState(${uniqueIndex})" class="hover:text-fuchsia-400 transition">
+                                        <svg id="volume-icon-${uniqueIndex}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M12 18.75V5.25L7.75 9.5H4.5v5h3.25L12 18.75z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // 5. Grid Card Render Engine
+        function renderGrid(items) {
+            if (items.length === 0) {
+                workGrid.innerHTML = `<p class="text-gray-500 text-center col-span-full py-12 text-sm">No items found matching this criteria.</p>`;
+                return;
+            }
+
+            workGrid.innerHTML = items.map((item, index) => {
+                const category = item.Categorey || item.Category || "Asset Item"; 
+                const title = item.Title || "Untitled Project";
+                const description = item.Descrption || item.Description || "";
+                const image = item.Thumbnail || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80";
+                const primaryLink = item.Watch_Link || "#";
+                
+                let badgeColor = "bg-purple-600/80";
+                let aspectClass = "aspect-square"; 
+                let mediaContainerHtml = '';
+
+                if (item.computedSystemCategory === 'web') {
+                    badgeColor = "bg-emerald-600/80";
+                } else if (item.computedSystemCategory === 'video') {
+                    badgeColor = "bg-blue-600/80";
+                    aspectClass = "aspect-video"; 
+                } else if (item.computedSystemCategory === 'shorts') {
+                    badgeColor = "bg-fuchsia-600/80";
+                    aspectClass = "aspect-[9/16] max-h-[65vh] md:max-h-[500px] mx-auto w-full"; 
+                }
+
+                if (item.isVideoSource) {
+                    mediaContainerHtml = buildVideoEmbedHtml(primaryLink, image, index);
+                } else {
+                    mediaContainerHtml = `
+                        <img src="${image}" alt="${title}" 
+                             class="w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out"
+                             onload="revealImage(this)">
+                    `;
+                }
+
+                return `
+                    <div class="work-item group bg-[#0d081b] border border-white/5 rounded-2xl overflow-hidden hover:border-violet-500/30 transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full ${aspectClass} relative overflow-hidden bg-white/5 dynamic-skeleton">
+                                ${mediaContainerHtml}
+                                <span class="absolute top-4 left-4 ${badgeColor} backdrop-blur-md text-[10px] uppercase tracking-wider text-white font-bold px-2.5 py-1 rounded-md z-10 pointer-events-none">
+                                    ${category}
+                                </span>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <h3 class="text-lg font-bold text-white group-hover:text-violet-400 transition line-clamp-1">${title}</h3>
+                                <p class="text-sm text-gray-400 line-clamp-2">${description}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Bind player hooks to valid local streaming URLs
+            items.forEach((item, index) => {
+                if (item.isVideoSource && !item.Watch_Link?.includes('youtube.com') && !item.Watch_Link?.includes('youtu.be')) {
+                    attachVideoEventEngineListeners(index);
+                }
+            });
+        }
+
+        // 6. Custom Controller Event Integration Rules
+        function attachVideoEventEngineListeners(index) {
+            const video = document.getElementById(`video-player-${index}`);
+            const progressBar = document.getElementById(`progress-bar-${index}`);
+            const progressPin = document.getElementById(`progress-pin-${index}`);
+            const currentTimeText = document.getElementById(`current-time-${index}`);
+            const durationTimeText = document.getElementById(`duration-time-${index}`);
+            const wrapper = video?.parentElement;
+
+            if (!video) return;
+
+            video.addEventListener('loadedmetadata', () => {
+                if(wrapper && wrapper.parentElement) wrapper.parentElement.classList.remove('dynamic-skeleton');
+                if(durationTimeText) durationTimeText.innerText = formatTimelineDigit(video.duration);
+            });
+
+            video.addEventListener('timeupdate', () => {
+                if (!video.duration) return;
+                const currentPercentage = (video.currentTime / video.duration) * 100;
+                if(progressBar) progressBar.style.width = `${currentPercentage}%`;
+                if(progressPin) progressPin.style.left = `${currentPercentage}%`;
+                if(currentTimeText) currentTimeText.innerText = formatTimelineDigit(video.currentTime);
+            });
+
+            video.addEventListener('ended', () => {
+                const playIcon = document.getElementById(`play-icon-${index}`);
+                const pauseIcon = document.getElementById(`pause-icon-${index}`);
+                const overlay = document.getElementById(`play-overlay-${index}`);
+                if(pauseIcon) pauseIcon.classList.add('hidden');
+                if(playIcon) playIcon.classList.remove('hidden');
+                if(overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+            });
+        }
+
+        // 7. Globalized Audio Visual Actions for Windows Canvas Layer
+        window.togglePlayState = function(index) {
+            const video = document.getElementById(`video-player-${index}`);
+            const playIcon = document.getElementById(`play-icon-${index}`);
+            const pauseIcon = document.getElementById(`pause-icon-${index}`);
+            const overlay = document.getElementById(`play-overlay-${index}`);
+
+            if (!video) return;
+
+            if (video.paused) {
+                document.querySelectorAll('video').forEach(vid => {
+                    vid.pause();
+                    const lookupIdx = vid.id.replace('video-player-', '');
+                    const pIcon = document.getElementById(`play-icon-${lookupIdx}`);
+                    const paIcon = document.getElementById(`pause-icon-${lookupIdx}`);
+                    const ovl = document.getElementById(`play-overlay-${lookupIdx}`);
+                    if(pIcon) pIcon.classList.remove('hidden');
+                    if(paIcon) paIcon.classList.add('hidden');
+                    if(ovl) ovl.classList.remove('opacity-0', 'pointer-events-none');
+                });
+                
+                video.play();
+                if(playIcon) playIcon.classList.add('hidden');
+                if(pauseIcon) pauseIcon.classList.remove('hidden');
+                if(overlay) overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                video.pause();
+                if(pauseIcon) pauseIcon.classList.add('hidden');
+                if(playIcon) playIcon.classList.remove('hidden');
+                if(overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        };
+
+        window.toggleMuteState = function(index) {
+            const video = document.getElementById(`video-player-${index}`);
+            const volIcon = document.getElementById(`volume-icon-${index}`);
+            if (!video || !volIcon) return;
+
+            video.muted = !video.muted;
+            if (video.muted) {
+                volIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636M12 18.75V5.25L7.75 9.5H4.5v5h3.25L12 18.75z" />`;
+            } else {
+                volIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M12 18.75V5.25L7.75 9.5H4.5v5h3.25L12 18.75z" />`;
+            }
+        };
+
+        window.seekVideo = function(event, index) {
+            const video = document.getElementById(`video-player-${index}`);
+            const progressBar = event.currentTarget;
+            if(video && video.duration) {
+                video.currentTime = (event.offsetX / progressBar.offsetWidth) * video.duration;
+            }
+        };
+
+        function formatTimelineDigit(time) {
+            if (isNaN(time)) return "0:00";
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // 8. Event Management Hooks
+        function updateURL(filter) {
+            const newUrl = `${window.location.pathname}?filter=${filter}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+        }
+
+        function updateActiveButtonUI(filter) {
+            mainFilters.forEach(btn => {
+                if(btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('bg-gradient-to-r', 'from-violet-600', 'to-fuchsia-600', 'text-white');
+                    btn.classList.remove('bg-white/5', 'text-gray-400');
+                } else {
+                    btn.classList.remove('bg-gradient-to-r', 'from-violet-600', 'to-fuchsia-600', 'text-white');
+                    btn.classList.add('bg-white/5', 'text-gray-400');
+                }
+            });
+        }
+
+        mainFilters.forEach(button => {
+            button.addEventListener('click', () => {
+                currentFilter = button.getAttribute('data-filter');
+                currentSubFilter = 'all'; 
+                visibleItemsCount = 10;
+                updateActiveButtonUI(currentFilter);
+                updateURL(currentFilter);
+                processAndRender();
+            });
+        });
+
+        subFilters.forEach(button => {
+            button.addEventListener('click', () => {
+                currentSubFilter = button.getAttribute('data-sub');
+                processAndRender();
+            });
+        });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                visibleItemsCount += 10;
+                processAndRender();
+            });
+        }
+    });
+
+    function revealImage(imgElement) {
+        const wrapper = imgElement.parentElement;
+        if(wrapper) wrapper.classList.remove('dynamic-skeleton');
+        imgElement.classList.remove('opacity-0');
+        imgElement.classList.add('opacity-100');
+    }
+</script>
+</body>
+</html>
